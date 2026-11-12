@@ -5,28 +5,28 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Recuperation du projet Java'
+                echo 'Recuperation du projet Java depuis GitHub'
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Compilation du projet avec Maven'
-                bat 'mvn clean compile'
+                sh 'mvn clean compile'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Execution des tests'
-                bat 'mvn test'
+                sh 'mvn test'
             }
         }
 
         stage('Package') {
             steps {
                 echo 'Creation du fichier JAR'
-                bat 'mvn package'
+                sh 'mvn package'
             }
         }
 
